@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guessing Game</title>
+    <style>
+        #won,#lost{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     
-
+          <p id="won"></p>
+          <p id="lost"></p>
 
     <script>
        var number_of_won = 0, number_of_lost = 0;
@@ -23,8 +38,9 @@
         number_of_lost++;
        }
    }
-     document.write("You have won " +   number_of_won  +" times" + "</br>");
-     document.write("You have lost " +  number_of_lost  +" times");
+
+ document.querySelector("#won").innerHTML= "You have won " + number_of_won  + " times";
+ document.querySelector("#lost").innerHTML= "You have lost " + number_of_lost  + " times";
     </script>
 </body>
 </html>
