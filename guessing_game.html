@@ -3,44 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
     <style>
-        #won,#lost{
-            height: 200px;
-            width: 200px;
-            background-color: red;
-            color: white;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            font-weight: bold;
-        }
-    </style>
+        body{
+    background-color: black;
+    font-family: 'Varela Round', sans-serif;
+}
+.container,.btn{
+    display: flex;
+    justify-content: center;
+}
+p{
+    font-size: 70px;
+    text-align: center;
+    background-color: white;
+    width: 300px;
+    height: 180px;
+    margin-right: 30px;
+    font-size: 150px;
+    border-radius: 10px;
+}
+.btn{
+    margin-top: -100px;
+}
+button{
+    width: 130px;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 20px;
+    background:linear-gradient(to right,rgb(7, 7, 240),rgb(31, 31, 114));
+    color: white;
+    border: 1px solid white;
+}
+h1{
+    color: white;
+    margin-bottom: -130px;
+    margin-top: 170px;
+    text-align: center;
+}
+h2{
+    color: white;
+    text-align: center;
+    margin-top: -450px;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    background-color: tomato;
+    font-size: 35px;
+}
+.win-1{
+    display: flex;
+    justify-content: center;
+}
+</style>
+    <title>Guessing Game</title>
 </head>
 <body>
-    
-          <p id="won"></p>
-          <p id="lost"></p>
+    <div class="container">
+        <div class="dice-1">
+     <h1>Player 1</h1>   
+   <p id="randdom-1"></p>
+    </div>
+    <div class="dice-2">
+   <h1>Player 2</h1>   
+   <p id="randdom-2"></p>
+</div>
+</div>
+<div class="btn">
+<button onclick=" random_number()">Click Here</button>
+</div> 
+<div class="win-1">
+<h2></h2>
+</div>
 
-    <script>
-       var number_of_won = 0, number_of_lost = 0;
-   for(var i=1; i<6; i++){
-       var number = (parseInt(prompt("Enter Number (From 1 to 5): ")));
-       var random_number = Math.floor(Math.random()*5 + 1);
 
-       if(number==random_number){
-           console.log("You Have Won");
-           number_of_won++;
-       }else{
-        console.log("You Have Lost | Random Number was: " + random_number);
-        number_of_lost++;
-       }
-   }
-
- document.querySelector("#won").innerHTML= "You have won " + number_of_won  + " times";
- document.querySelector("#lost").innerHTML= "You have lost " + number_of_lost  + " times";
-    </script>
+<script>
+     for(var i=1; i<100; i++){
+    function random_number(){
+       var randon_one =  document.querySelector("#randdom-1").innerHTML = Math.floor(Math.random()*6+1);
+       var randon_two = document.querySelector("#randdom-2").innerHTML = Math.floor(Math.random()*6+1);
+          
+       if(randon_one > randon_two){
+           document.querySelector("h2").innerHTML="Player 1 Wins";
+       } if(randon_one < randon_two){
+        document.querySelector("h2").innerHTML="Player 2 Wins";
+      }if(randon_one == randon_two){
+        document.querySelector("h2").innerHTML="Game Tie";
+    }
+    }
+}
+</script>
 </body>
 </html>
